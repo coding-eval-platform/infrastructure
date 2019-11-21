@@ -248,7 +248,7 @@ $ aws route53 create-hosted-zone \
     }
     ```
 
-    If the status is not `INSYNC` then you will have to wait. A 
+    If the status is not `INSYNC` then you will have to wait.
 
 4. You will have to wait some time. After the DNS change is propagated, it can take from a couple of minutes up to several hours for ACM to validate the domain. To check if the certificate is validated retrieve its metadata (as you did in step 2).
 
@@ -318,7 +318,7 @@ $ aws route53 create-hosted-zone \
 
     ```
     $ kops edit cluster \
-         --name <cluster-name>
+        --name <cluster-name> \
         --state s3://<bucket-name>
     ```
 
@@ -350,8 +350,8 @@ $ aws route53 create-hosted-zone \
 
     ```
     $ kops edit cluster \
-        --name <cluster-name>
-        --state s3://<bucket-name>
+        --name <cluster-name> \
+        --state s3://<bucket-name> \
         --yes
     ```
 
@@ -365,7 +365,7 @@ $ aws route53 create-hosted-zone \
     ```
     # Execute the following to check the cluster's state
     $ kops validate cluster \
-        --name <cluster-name>
+        --name <cluster-name> \
         --state s3://<bucket-name>
 
     # Execute the following to get some cluster's info (for example, the API's url).
@@ -381,7 +381,7 @@ $ aws route53 create-hosted-zone \
 
         ```
             $ kops edit cluster \
-                --name <cluster-name>
+                --name <cluster-name> \
                 --state s3://<bucket-name>
         ```    
 
@@ -402,8 +402,8 @@ $ aws route53 create-hosted-zone \
 
         ```
         $ kops edit cluster \
-            --name <cluster-name>
-            --state s3://<bucket-name>
+            --name <cluster-name> \
+            --state s3://<bucket-name> \
             --yes
         ```
 
@@ -411,8 +411,8 @@ $ aws route53 create-hosted-zone \
 
          ```
         $ kops rolling-update cluster \
-            --name <cluster-name>
-            --state s3://<bucket-name>
+            --name <cluster-name> \
+            --state s3://<bucket-name> \
             --yes
         ```
 
@@ -422,7 +422,7 @@ $ aws route53 create-hosted-zone \
 
         ```
         $ kops validate cluster \
-            --name <cluster-name>
+            --name <cluster-name> \
             --state s3://<bucket-name>
         ```
 
@@ -464,14 +464,14 @@ $ aws route53 create-hosted-zone \
             | base64 --decode 
         ```
 
-        Copy the output of the last command and enter it in the dashboard UI's.
+        Copy the output of the last command and enter it in the dashboard's UI.
 
 
 8. [Optional] As having a provisioned cluster costs money, you might want to delete if you are just playing around. Execute the following command to terminate all AWS resources **created by KOPS**:
 
      ```
     $ kops delete cluster \
-        --name <cluster-name>
-        --state s3://<bucket-name>
+        --name <cluster-name> \
+        --state s3://<bucket-name> \
         --yes
     ```
