@@ -448,7 +448,7 @@ $ aws route53 create-hosted-zone \
 
         ```
         # First assing the cluster-admin role to the dashbaord service role
-        $ kubectl create clusterrolebinding kubernetes-dashboard |
+        $ kubectl create clusterrolebinding kubernetes-dashboard \
             -n kube-system \
             --clusterrole=cluster-admin \
             --serviceaccount=kube-system:kubernetes-dashboard 
